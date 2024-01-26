@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.assignmentapp.viewmodels.DashboardViewModel"></variable>
+    </data>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activities.DashboardActivity">
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/personName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/enter_name"
+        android:singleLine="true"
+        android:maxLength="15"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/personAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:singleLine="true"
+        android:maxLength="3"
+        android:inputType="number"
+        android:hint="@string/enter_age" />
+
+
+    <EditText
+        android:id="@+id/personCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/enter_city"
+        android:singleLine="true"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addPersonDataBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/add_data"
+        android:textAllCaps="false"
+        android:background="#FFC107"/>
+
+    <!--Button for reading your course to database-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/readDataBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/view_data"
+        android:textAllCaps="false"
+        android:visibility="visible"
+        android:background="#FFC107"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
