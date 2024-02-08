@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.assignmentapp.R
 import com.example.assignmentapp.databinding.ActivityDashboardBinding
+import com.example.assignmentapp.model.Employee
 import com.example.assignmentapp.viewmodels.DashboardViewModel
 
 
@@ -35,7 +36,10 @@ class DashboardActivity : AppCompatActivity() {
         } else if (isFieldEmptyOrWhitespace(city)) {
             binding.personCity.error = getString(R.string.please_enter_your_city)
         } else {
-            viewModel.saveDataToRealmDb(name, age, city)
+
+                val employee = Employee(name = name, age = age.toInt(), city = city)
+                viewModel.insertEmployeeData(employee)
+          //  viewModel.saveDataToRealmDb(name, age, city)
             clearInputFields()
         }
         }

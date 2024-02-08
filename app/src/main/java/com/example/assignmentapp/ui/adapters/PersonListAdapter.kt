@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignmentapp.databinding.ItemPersonBinding
+import com.example.assignmentapp.model.Employee
 import com.example.assignmentapp.model.Person
 
 class PersonListAdapter( private val context: Context) :
     RecyclerView.Adapter<PersonListAdapter.ViewHolder>() {
-    private lateinit var personList: List<Person>
+    private lateinit var personList: List<Employee>
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,7 +28,7 @@ class PersonListAdapter( private val context: Context) :
 
     inner class ViewHolder(private val binding: ItemPersonBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(modal: Person) {
+        fun bind(modal: Employee) {
             binding.apply {
                 binding.nameTextView.text = modal.name
                     binding.ageTextView.text = modal.age.toString()
@@ -36,7 +37,7 @@ class PersonListAdapter( private val context: Context) :
             }
         }
     }
-    fun setData(newDataList: List<Person>) {
+    fun setData(newDataList: List<Employee>) {
         personList = newDataList
         notifyDataSetChanged()
     }

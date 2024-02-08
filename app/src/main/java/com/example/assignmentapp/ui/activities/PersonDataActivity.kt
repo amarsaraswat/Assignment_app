@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assignmentapp.R
 import com.example.assignmentapp.databinding.PersonDataBinding
+import com.example.assignmentapp.model.Employee
 import com.example.assignmentapp.model.Person
 import com.example.assignmentapp.ui.adapters.PersonListAdapter
 import com.example.assignmentapp.viewmodels.PersonDataViewModel
@@ -19,7 +20,7 @@ class PersonDataActivity:AppCompatActivity() {
 
     private lateinit var viewModel: PersonDataViewModel
     private var personListAdapter: PersonListAdapter? = null
-    private  var dataList:List<Person> = ArrayList()
+    private  var dataList:List<Employee> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,7 @@ class PersonDataActivity:AppCompatActivity() {
         setContentView(view)
         binding.viewModel=viewModel
         binding.recyclerView.layoutManager= LinearLayoutManager(this)
-        dataList=viewModel.fetchDataFromRealmDb()
+        dataList=viewModel.getAllUsers()
         binding.noDataFound.visibility = if (dataList.isEmpty()) View.VISIBLE else View.GONE
         personListAdapter= PersonListAdapter(this)
         binding.recyclerView.adapter=personListAdapter

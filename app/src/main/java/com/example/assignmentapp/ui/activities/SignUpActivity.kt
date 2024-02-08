@@ -2,7 +2,6 @@ package com.example.assignmentapp.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assignmentapp.R
 import com.example.assignmentapp.databinding.SignupActivityBinding
@@ -32,7 +31,12 @@ class SignUpActivity:AppCompatActivity() {
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    Snackbar.make(
+                        binding.root,
+                        "enter valid email",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                    binding.userName.text.clear()
 
                 }
             }
